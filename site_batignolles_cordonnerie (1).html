@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23704214'/><text x='16' y='22' text-anchor='middle' font-family='serif' font-size='16' fill='%23F5E6C8'>C</text></svg>">
+<title>Serrurerie Cordonnerie des Batignolles – Paris 17</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--gold:#9B6B2F;--dark:#2C1A0E;--cream:#FDF6EC;--light:#F5E6C8;--text:#3D2B1F}
+body{font-family:'Inter',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:var(--dark);position:sticky;top:0;z-index:100;transition:box-shadow 0.3s}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.3)}
+.logo-wrap{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-badge{width:46px;height:46px}
+.logo-text{color:var(--light);font-family:'Playfair Display',serif}
+.logo-text .name{font-size:0.95rem;font-weight:700;display:block}
+.logo-text .sub{font-size:0.72rem;opacity:0.6;letter-spacing:0.08em;text-transform:uppercase}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{text-decoration:none;color:rgba(245,230,200,0.6);font-size:0.85rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--light)}
+.nav-cta{background:var(--gold);color:var(--light) !important;padding:0.5rem 1.2rem;border-radius:5px;font-weight:600 !important;transition:transform 0.2s,opacity 0.2s !important}
+.nav-cta:hover{opacity:0.9;transform:scale(1.03)}
+
+.hero{background:var(--dark);color:var(--light);padding:5rem 2rem;position:relative;overflow:hidden;min-height:520px;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background:url('boutique_cordonnier.jpg') center/cover no-repeat;opacity:0.18}
+.hero-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:1}
+.hero-badge-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(155,107,47,0.2);border:1px solid rgba(155,107,47,0.4);padding:0.4rem 1rem;border-radius:20px;font-size:0.75rem;font-weight:600;color:var(--light);margin-bottom:1.5rem;letter-spacing:0.05em;text-transform:uppercase;animation:fadeDown 0.6s ease both}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:900;line-height:1.1;margin-bottom:1rem;animation:fadeUp 0.7s 0.1s ease both}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{font-size:0.95rem;opacity:0.75;line-height:1.8;margin-bottom:2rem;animation:fadeUp 0.7s 0.2s ease both}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.3s ease both}
+.btn-gold{background:var(--gold);color:var(--light);padding:0.9rem 1.8rem;border-radius:6px;font-weight:600;text-decoration:none;font-size:0.95rem;display:inline-block;transition:transform 0.2s,box-shadow 0.2s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(155,107,47,0.4)}
+.btn-outline{border:1px solid rgba(245,230,200,0.4);color:var(--light);padding:0.9rem 1.8rem;border-radius:6px;font-weight:500;text-decoration:none;font-size:0.95rem;display:inline-block;transition:all 0.2s}
+.btn-outline:hover{border-color:var(--light);background:rgba(255,255,255,0.05)}
+.hero-right{display:flex;flex-direction:column;gap:10px;animation:fadeIn 0.8s 0.4s ease both}
+.promo-box{background:rgba(155,107,47,0.15);border:1px solid rgba(155,107,47,0.35);border-radius:10px;padding:1.2rem;text-align:center}
+.promo-box .promo-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;opacity:0.6;margin-bottom:0.3rem}
+.promo-box .promo-val{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--gold)}
+.promo-box .promo-sub{font-size:0.75rem;opacity:0.6;margin-top:0.2rem}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-box{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:1rem;text-align:center;transition:border-color 0.2s}
+.stat-box:hover{border-color:rgba(155,107,47,0.4)}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold)}
+.stat-label{font-size:0.72rem;opacity:0.55;margin-top:3px;letter-spacing:0.02em}
+
+.urgence{background:var(--gold);padding:0.9rem 2rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap}
+.urgence p{color:var(--dark);font-weight:700;font-size:0.9rem}
+.urgence a{background:var(--dark);color:var(--light);padding:0.55rem 1.3rem;border-radius:5px;font-weight:600;text-decoration:none;font-size:0.85rem;white-space:nowrap;transition:transform 0.2s}
+.urgence a:hover{transform:scale(1.04)}
+
+.photos-strip{display:grid;grid-template-columns:repeat(4,1fr);height:220px;overflow:hidden}
+.photo-cell{overflow:hidden;position:relative}
+.photo-cell img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
+.photo-cell:hover img{transform:scale(1.06)}
+
+.section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+.section-eyebrow{text-align:center;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold);font-weight:600;margin-bottom:0.5rem}
+.section-title{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;margin-bottom:0.4rem;text-align:center;color:var(--dark)}
+.section-sub{color:#7A6050;text-align:center;margin-bottom:0;font-size:0.92rem}
+.gold-line{width:36px;height:2px;background:var(--gold);margin:0.8rem auto 2.5rem;border-radius:2px}
+
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:1rem}
+.service-card{border:1px solid #EDE0D0;border-radius:10px;padding:1.5rem;text-align:center;transition:all 0.3s;background:#fff;cursor:default}
+.service-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 12px 30px rgba(155,107,47,0.1)}
+.service-icon{font-size:2rem;margin-bottom:0.8rem;display:block;transition:transform 0.3s}
+.service-card:hover .service-icon{transform:scale(1.15)}
+.service-card h3{font-size:0.9rem;font-weight:600;margin-bottom:0.4rem;color:var(--dark)}
+.service-card p{font-size:0.78rem;color:#7A6050;line-height:1.55}
+
+.cream-section{background:var(--cream);padding:4rem 2rem}
+.cream-inner{max-width:1000px;margin:0 auto}
+.points-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:2rem}
+.point{padding:1.5rem;border:1px solid #EDE0D0;border-radius:10px;background:#fff;transition:all 0.3s}
+.point:hover{border-color:var(--gold);box-shadow:0 8px 20px rgba(155,107,47,0.08)}
+.point-icon{font-size:1.5rem;margin-bottom:0.8rem;display:block}
+.point h4{color:var(--dark);font-weight:600;font-size:0.92rem;margin-bottom:0.4rem}
+.point p{color:#7A6050;font-size:0.8rem;line-height:1.6}
+
+.avis-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.avis-card{border:1px solid #EDE0D0;border-radius:10px;padding:1.5rem;transition:all 0.3s;background:#fff}
+.avis-card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(155,107,47,0.1);border-color:var(--gold)}
+.stars{color:var(--gold);margin-bottom:0.8rem;font-size:1rem;letter-spacing:2px}
+.avis-card blockquote{font-size:0.87rem;color:#5A4030;line-height:1.75;margin-bottom:1rem;font-style:italic}
+.avis-author{font-weight:600;font-size:0.82rem;color:var(--dark)}
+
+.horaires{background:var(--dark);padding:4rem 2rem;color:var(--light)}
+.horaires-inner{max-width:700px;margin:0 auto;text-align:center}
+.horaires .section-title{color:var(--light)}
+.horaires .section-sub{color:rgba(245,230,200,0.55)}
+.horaires-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:0.8rem;margin-top:2rem}
+.jour{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:0.9rem;transition:border-color 0.2s}
+.jour:hover{border-color:rgba(155,107,47,0.5)}
+.jour-nom{font-size:0.72rem;font-weight:600;color:rgba(245,230,200,0.5);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.4rem}
+.jour-heure{font-size:0.8rem;color:var(--light);line-height:1.5}
+.ferme{color:rgba(245,230,200,0.2) !important}
+
+.contact{background:var(--gold);padding:4rem 2rem;text-align:center}
+.contact h2{font-family:'Playfair Display',serif;color:var(--dark);font-size:2rem;font-weight:700;margin-bottom:0.8rem}
+.contact p{color:rgba(44,26,14,0.7);margin-bottom:2rem;font-size:0.95rem}
+.contact .btn-dark{background:var(--dark);color:var(--light);padding:0.9rem 1.8rem;border-radius:6px;font-weight:600;text-decoration:none;font-size:0.95rem;display:inline-block;transition:transform 0.2s,opacity 0.2s}
+.contact .btn-dark:hover{transform:translateY(-2px);opacity:0.9}
+.contact .btn-light{border:2px solid rgba(44,26,14,0.3);color:var(--dark);padding:0.9rem 1.8rem;border-radius:6px;font-weight:500;text-decoration:none;font-size:0.95rem;display:inline-block;transition:all 0.2s}
+.contact .btn-light:hover{background:rgba(44,26,14,0.08)}
+.contact-grid{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-top:2.5rem}
+.contact-item .clabel{font-size:0.7rem;color:rgba(44,26,14,0.5);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.3rem}
+.contact-item .cvalue{color:var(--dark);font-weight:700;font-size:0.95rem}
+
+footer{background:#1A0E06;color:rgba(245,230,200,0.35);text-align:center;padding:1.2rem;font-size:0.78rem}
+footer span{color:var(--gold)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:650px){.hero-inner{grid-template-columns:1fr}.hero h1{font-size:2rem}.nav-links{display:none}.photos-strip{grid-template-columns:1fr 1fr;height:300px}}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="logo-wrap" href="#">
+    <svg class="logo-badge" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="23" cy="23" r="22" fill="#9B6B2F" stroke="#F5E6C8" stroke-width="1"/>
+      <circle cx="23" cy="23" r="18" fill="none" stroke="#F5E6C8" stroke-width="0.7" stroke-dasharray="2 2"/>
+      <text x="23" y="27" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="700" fill="#FDF6EC">SCB</text>
+      <path d="M12 34 Q23 39 34 34" stroke="#F5E6C8" stroke-width="0.7" fill="none"/>
+    </svg>
+    <div class="logo-text">
+      <span class="name">Cordonnerie des Batignolles</span>
+      <span class="sub">Serrurerie · Clés · Réparation</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#avis">Avis</a></li>
+    <li><a href="#horaires">Horaires</a></li>
+    <li><a href="tel:0650122090" class="nav-cta">Appeler</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge-pill">🔑 Paris 17ème — Depuis des années</div>
+      <h1>Cordonnier & serrurier<br><em>artisan</em> de confiance</h1>
+      <p>Réparation chaussures, clés minutes, tampons, gravure, serrurerie — tout en un seul endroit, par des mains expertes.</p>
+      <div class="hero-btns">
+        <a href="tel:0650122090" class="btn-gold">📞 06 50 12 20 90</a>
+        <a href="#services" class="btn-outline">Voir nos services</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="promo-box">
+        <div class="promo-label">Offre en cours</div>
+        <div class="promo-val">30€ au lieu de 40€</div>
+        <div class="promo-sub">Badge d'immeuble — Octobre 2025</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-num">4.8★</div><div class="stat-label">Note moyenne clients</div></div>
+        <div class="stat-box"><div class="stat-num">7j/7</div><div class="stat-label">Lun–Sam 7h–23h</div></div>
+        <div class="stat-box"><div class="stat-num">Clés</div><div class="stat-label">En quelques minutes</div></div>
+        <div class="stat-box"><div class="stat-num">Paris</div><div class="stat-label">17ème arrondissement</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="photos-strip">
+  <div class="photo-cell"><img src="boutique_cordonnier.jpg" alt="Façade de la cordonnerie" onerror="this.parentElement.style.background='#3D2B1F'"/></div>
+  <div class="photo-cell"><img src="cordonnierintérieur.jpg" alt="Intérieur clés minute" onerror="this.parentElement.style.background='#5A3E28'"/></div>
+  <div class="photo-cell"><img src="cordonnier.jpg" alt="Réparation chaussures" onerror="this.parentElement.style.background='#704214'"/></div>
+  <div class="photo-cell"><img src="cordonnier4.jpg" alt="Travail du cuir" onerror="this.parentElement.style.background='#9B6B2F'"/></div>
+</div>
+
+<div class="urgence">
+  <p>🔑 Badge d'immeuble à <strong>30€</strong> au lieu de 40€ — Offre limitée !</p>
+  <a href="tel:0650122090">Profiter de l'offre</a>
+</div>
+
+<div class="section reveal" id="services">
+  <div class="section-eyebrow">Ce qu'on fait</div>
+  <h2 class="section-title">Nos services</h2>
+  <p class="section-sub">Cordonnerie, serrurerie, gravure, tampon — tout sous un même toit</p>
+  <div class="gold-line"></div>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-icon">👟</span><h3>Cordonnerie</h3><p>Réparation semelles, talons, coutures, nettoyage et entretien cuir</p></div>
+    <div class="service-card"><span class="service-icon">🔑</span><h3>Clés minute</h3><p>Duplication clés toutes marques, badges d'immeuble, télécommandes</p></div>
+    <div class="service-card"><span class="service-icon">🔒</span><h3>Serrurerie</h3><p>Changement, ouverture, pose de serrures, dépannage urgent</p></div>
+    <div class="service-card"><span class="service-icon">🪪</span><h3>Gravure</h3><p>Gravure sur métal, plaques nominatives, bijoux et objets personnels</p></div>
+    <div class="service-card"><span class="service-icon">📋</span><h3>Tampon</h3><p>Fabrication de tampons encreurs, cachets personnalisés toutes tailles</p></div>
+    <div class="service-card"><span class="service-icon">📇</span><h3>Carte de visite</h3><p>Impression rapide de cartes de visite professionnelles</p></div>
+  </div>
+</div>
+
+<div class="cream-section">
+  <div class="cream-inner reveal">
+    <div class="section-eyebrow">Nos engagements</div>
+    <h2 class="section-title">Pourquoi nous choisir ?</h2>
+    <p class="section-sub">Un artisan de quartier qui travaille avec soin et honnêteté</p>
+    <div class="gold-line"></div>
+    <div class="points-grid">
+      <div class="point"><span class="point-icon">⚡</span><h4>Service express</h4><p>Clés dupliquées en quelques minutes, réparations rapides sans attente inutile</p></div>
+      <div class="point"><span class="point-icon">💰</span><h4>Prix honnêtes</h4><p>Tarifs justes et transparents, toujours moins chers que la moyenne parisienne</p></div>
+      <div class="point"><span class="point-icon">😊</span><h4>Accueil chaleureux</h4><p>Toujours avec le sourire, la courtoisie et les bons conseils pour vos besoins</p></div>
+      <div class="point"><span class="point-icon">🏆</span><h4>Qualité artisanale</h4><p>Finitions soignées sur chaussures, clés et serrures — un vrai savoir-faire de quartier</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="section reveal" id="avis">
+  <div class="section-eyebrow">Témoignages</div>
+  <h2 class="section-title">Ce que disent nos clients</h2>
+  <p class="section-sub">Note moyenne de 4.8 étoiles sur Google</p>
+  <div class="gold-line"></div>
+  <div class="avis-grid">
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Très efficace. Ma serrure a été réparée rapidement et sans avoir à la changer complètement. Cela fait plusieurs années que je viens dans la boutique et je suis toujours très satisfait."</blockquote>
+      <div class="avis-author">— Cedric C.</div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Cordonnier super rigoureux, 4ème fois que j'y vais et jamais déçu ! Toujours avec le sourire, prix moins chers que la moyenne. Qualité de finition exceptionnelle."</blockquote>
+      <div class="avis-author">— Sosa R.</div>
+    </div>
+    <div class="avis-card">
+      <div class="stars">★★★★★</div>
+      <blockquote>"Il existe encore des honnêtes et de très bons cordonniers ! Je recommande très fortement, cordonnier professionnel et très aimable."</blockquote>
+      <div class="avis-author">— Arnault F.</div>
+    </div>
+  </div>
+</div>
+
+<div class="horaires reveal" id="horaires">
+  <div class="horaires-inner">
+    <div class="section-eyebrow" style="color:rgba(245,230,200,0.5)">Quand nous trouver</div>
+    <h2 class="section-title">Horaires d'ouverture</h2>
+    <p class="section-sub">12 Rue des Batignolles, 75017 Paris</p>
+    <div class="gold-line"></div>
+    <div class="horaires-grid">
+      <div class="jour"><div class="jour-nom">Lun</div><div class="jour-heure">07h–23h</div></div>
+      <div class="jour"><div class="jour-nom">Mar</div><div class="jour-heure">07h–23h</div></div>
+      <div class="jour"><div class="jour-nom">Mer</div><div class="jour-heure">07h–23h</div></div>
+      <div class="jour"><div class="jour-nom">Jeu</div><div class="jour-heure">07h–23h</div></div>
+      <div class="jour"><div class="jour-nom">Ven</div><div class="jour-heure">07h–23h</div></div>
+      <div class="jour"><div class="jour-nom">Sam</div><div class="jour-heure">07h–23h</div></div>
+      <div class="jour"><div class="jour-nom">Dim</div><div class="jour-heure ferme">Fermé</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="contact reveal" id="contact">
+  <h2>Besoin d'un artisan de confiance ?</h2>
+  <p>Venez nous voir ou appelez-nous directement — on est là du lundi au samedi.</p>
+  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="tel:0650122090" class="btn-dark">📞 06 50 12 20 90</a>
+    <a href="#" class="btn-light">✉️ Nous écrire</a>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-item"><div class="clabel">Adresse</div><div class="cvalue">12 Rue des Batignolles, 75017 Paris</div></div>
+    <div class="contact-item"><div class="clabel">Téléphone</div><div class="cvalue">06 50 12 20 90</div></div>
+    <div class="contact-item"><div class="clabel">Horaires</div><div class="cvalue">Lun–Sam · 07h–23h</div></div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2024 <span>Serrurerie Cordonnerie des Batignolles</span> — 12 Rue des Batignolles, 75017 Paris</p>
+</footer>
+
+<script>
+document.getElementById('navbar').addEventListener('scroll',()=>{});
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>30);
+});
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*100)}});
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
